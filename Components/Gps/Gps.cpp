@@ -37,8 +37,10 @@ namespace Components {
         Fw::On gpsNewState
     )
   {
-    this->gpsState = gpsNewState;
     // TODO Code to enable/disable GPS receiver
+    if(this->gpsState != gpsNewState) this->gpsTransitions += 1;
+    this->gpsState = gpsNewState;
+    this->log_ACTIVITY_HI_gpsStateSet(gpsNewState);
     this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
   }
 

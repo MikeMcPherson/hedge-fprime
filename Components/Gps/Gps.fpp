@@ -9,16 +9,15 @@ module Components {
         #### Uncomment the following examples to start customizing your component ####
         ##############################################################################
 
-        # @ Example async command
+        # Commands
         async command gpsSetState(gpsNewState: Fw.On) opcode 0
 
-        # @ Example telemetry counter
         telemetry gpsLatitude: F32
         telemetry gpsLongitude: F32
         telemetry gpsAltitude: F32
         telemetry gpsSatCount: F32
 
-        # @ Example event
+        # Events
         event gpsLockAcquired() \
             severity activity high \
             format "GPS lock acquired"
@@ -26,6 +25,10 @@ module Components {
         event gpsLockLost() \
             severity warning high \
             format "GPS lock lost"
+
+        event gpsStateSet($state: Fw.On) \
+            severity activity high \
+            format "GPS state set to {}"
 
         # @ Example port: receiving calls from the rate group
         # sync input port run: Svc.Sched

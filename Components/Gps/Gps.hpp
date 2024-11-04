@@ -42,7 +42,7 @@ namespace Components {
           Fw::On gpsNewState
       ) override;
     
-    Fw::On gpsState = Fw::On::OFF;  //! GPS enable/disable state
+    Fw::On gpsState = Fw::On::ON;  //! GPS enable/disable state
     U64 gpsTransitions = 0;         //! Number of enable/disable transitions since last reset
 
   };
